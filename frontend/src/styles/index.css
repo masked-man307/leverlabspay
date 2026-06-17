@@ -36,14 +36,14 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 2.5rem;
+    padding: 3rem 2rem;
     border-bottom: 1px solid var(--border);
     backdrop-filter: var(--glass-blur);
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 11, 14, 0.9);
+    background: rgba(10, 11, 14, 0.95);
 }
 
 .nav-top {
@@ -51,7 +51,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1280px;
+    max-width: 1200px;
+    margin-bottom: 0.5rem;
 }
 
 .nav-left {
@@ -60,58 +61,74 @@ nav {
     gap: 1rem;
 }
 
-.spcx-logo-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/SpaceX_logo_black.svg/1200px-SpaceX_logo_black.svg.png') no-repeat center/contain;
-    filter: invert(1);
-    background-color: #000;
-}
-
 .brand-name {
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: -0.5px;
+    color: #fff;
 }
 
-.uni-badge-large {
+/* BRANDING MASHUP: UNISWAP + SPACEX */
+.branding-mashup {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, rgba(255, 0, 122, 0.15), rgba(255, 0, 122, 0.05));
-    padding: 0.8rem 2.5rem;
-    border-radius: 50px;
-    border: 2px solid rgba(255, 0, 122, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 30px rgba(255, 0, 122, 0.1);
-    animation: slideDown 0.6s ease-out;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.2rem 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.uni-badge-large:hover {
-    transform: scale(1.05);
-    border-color: rgba(255, 0, 122, 0.6);
-    box-shadow: 0 0 50px rgba(255, 0, 122, 0.2);
-    background: rgba(255, 0, 122, 0.25);
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.uni-icon-large {
+.brand-logo-ui {
     width: 32px;
     height: 32px;
-    background: url('https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png') no-repeat center/contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
-@keyframes slideDown {
+.brand-plus {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.brand-text {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* SPECIFIC LOGOS */
+.logo-uniswap {
+    background-image: url('https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png');
+}
+
+.logo-spacex {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/SpaceX_logo_black.svg/1200px-SpaceX_logo_black.svg.png');
+    filter: invert(1);
+}
+
+@keyframes fadeInScale {
     from {
-        transform: translateY(-20px);
+        transform: scale(0.9);
         opacity: 0;
     }
 
     to {
-        transform: translateY(0);
+        transform: scale(1);
         opacity: 1;
     }
 }
@@ -187,37 +204,66 @@ h1 {
 /* TRUST BADGES */
 .trust-badges {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid var(--border);
 }
 
 .trust-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: 0.8;
 }
 
 .wallet-icons {
     display: flex;
-    gap: 1.2rem;
+    gap: 2rem;
     align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
 }
 
-.wallet-logo {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    filter: grayscale(20%) brightness(0.9);
+.logo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.wallet-logo:hover {
-    transform: scale(1.15);
-    filter: grayscale(0%) brightness(1.1);
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* PARTNER LOGOS */
+.logo-metamask {
+    background-image: url('https://raw.githubusercontent.com/MetaMask/brand-assets/main/Assets/SVG/Icon/FullColor/MetaMask_Icon_FullColor.svg');
+}
+
+.logo-phantom {
+    background-image: url('https://raw.githubusercontent.com/phantom-labs/press-kit/main/logo/phantom-icon-purple.svg');
+}
+
+.logo-coinbase {
+    background-image: url('https://avatars.githubusercontent.com/u/1806023?s=200&v=4');
+    border-radius: 4px;
+}
+
+.logo-binance {
+    background-image: url('https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/info/logo.png');
 }
 
 /* CLAIM CARD */
