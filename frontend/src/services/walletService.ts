@@ -22,19 +22,19 @@ export function detectWallets(): { type: WalletType; name: string; icon: string;
         {
             type: 'metamask' as WalletType,
             name: 'MetaMask',
-            icon: '🦊',
+            icon: 'https://raw.githubusercontent.com/MetaMask/brand-assets/main/Assets/SVG/Icon/FullColor/MetaMask_Icon_FullColor.svg',
             available: !!(ethereum?.isMetaMask)
         },
         {
             type: 'trustwallet' as WalletType,
             name: 'Trust Wallet',
-            icon: '🛡️',
+            icon: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png',
             available: !!(trustwallet || ethereum?.isTrust)
         },
         {
             type: 'phantom' as WalletType,
             name: 'Phantom',
-            icon: '👻',
+            icon: 'https://raw.githubusercontent.com/phantom-labs/press-kit/main/logo/phantom-icon-purple.svg',
             available: !!(phantom?.ethereum)
         }
     ];
