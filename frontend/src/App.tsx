@@ -73,13 +73,16 @@ function App() {
     return (
         <div className="root-wrapper">
             <nav>
-                <div className="nav-left">
-                    <div className="spcx-logo-img"></div>
-                    <span className="brand-name">SpaceX Coin</span>
+                <div className="nav-top">
+                    <div className="nav-left">
+                        <div className="spcx-logo-img"></div>
+                        <span className="brand-name">SpaceX</span>
+                    </div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>Official Airdrop Portal v2.4</div>
                 </div>
-                <div className="uni-badge">
-                    <div className="uni-icon"></div>
-                    <span>Partnered with Uniswap</span>
+                <div className="uni-badge-large">
+                    <div className="uni-icon-large"></div>
+                    <span>TRUSTED PARTNER OF UNISWAP</span>
                 </div>
             </nav>
 
